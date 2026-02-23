@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-page="builder">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodDash — Build Your Pizza</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/04-fooddash/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/04-fooddash/assets/main-Dao-2yTx.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/main-BU865ec5.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/builder-BmrGTvfB.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <path d="M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="header__logo-text">FoodDash</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Home</a>
+        <a href="./menu.html" class="header__nav-link">Menu</a>
+        <a href="./builder.html" class="header__nav-link header__nav-link--active">Builder</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Cart</span>
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container builder-page">
+      <h1 class="builder-page__title">Build Your Pizza</h1>
+      <p class="builder-page__subtitle">Drag toppings onto your pizza to customize it. Choose your size and add to cart!</p>
+
+      <div class="builder">
+        <!-- Left: Pizza Canvas -->
+        <div class="builder__canvas-wrap">
+          <div class="builder__size-selector">
+            <button class="builder__size-btn" data-size="small" data-price="8.99">Small $8.99</button>
+            <button class="builder__size-btn builder__size-btn--active" data-size="medium" data-price="11.99">Medium $11.99</button>
+            <button class="builder__size-btn" data-size="large" data-price="14.99">Large $14.99</button>
+          </div>
+          <div class="builder__canvas" id="pizza-canvas">
+            <div class="builder__pizza" id="pizza-base">
+              <div class="builder__pizza-base"></div>
+              <div class="builder__pizza-sauce"></div>
+              <div class="builder__pizza-cheese"></div>
+              <!-- Toppings will be added here dynamically -->
+            </div>
+            <p class="builder__canvas-hint" id="canvas-hint">Drag toppings here!</p>
+          </div>
+        </div>
+
+        <!-- Right: Toppings Panel + Summary -->
+        <div class="builder__panel">
+          <h2 class="builder__panel-title">Toppings</h2>
+          <p class="builder__panel-subtitle">Drag to add ($1.50 each)</p>
+          <div class="builder__toppings" id="toppings-grid">
+            <!-- Topping items with draggable -->
+          </div>
+
+          <div class="builder__summary" id="order-summary">
+            <h3 class="builder__summary-title">Your Pizza</h3>
+            <div class="builder__summary-size" id="summary-size">Medium Pizza</div>
+            <ul class="builder__summary-list" id="summary-list">
+              <li class="builder__summary-empty">No toppings added yet</li>
+            </ul>
+            <div class="builder__summary-divider"></div>
+            <div class="builder__summary-total">
+              <span>Total:</span>
+              <span class="builder__summary-price" id="summary-price">$11.99</span>
+            </div>
+            <button class="btn btn--primary btn--lg builder__add-to-cart" id="add-to-cart-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+              </svg>
+              Add to Cart
+            </button>
+            <button class="btn btn--outline builder__reset" id="reset-btn">Start Over</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 FoodDash. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

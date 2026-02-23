@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-page="itinerary">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripPlanner — Itinerary</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/05-tripplanner/assets/favicon-C1DAa1lr.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/05-tripplanner/assets/main-Bs6vHuK8.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/main-S6uCPXTb.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/itinerary-BczxYhT0.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <ellipse cx="16" cy="16" rx="6" ry="14" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="header__logo-text">TripPlanner</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Explore</a>
+        <a href="./wishlist.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          Wishlist
+          <span class="header__wishlist-badge" id="wishlist-badge" hidden>0</span>
+        </a>
+        <a href="./compare.html" class="header__nav-link">Compare</a>
+        <a href="./planner.html" class="header__nav-link">Plan a Trip</a>
+        <a href="./itinerary.html" class="header__nav-link header__nav-link--active">Itinerary</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container itinerary-page">
+      <h1 class="itinerary-page__title">Trip Itinerary</h1>
+      <p class="itinerary-page__subtitle">Plan your day-by-day schedule. Drag activities to reorder or move between days.</p>
+
+      <!-- Trip Setup Bar -->
+      <div class="itinerary-setup" id="itinerary-setup">
+        <div class="itinerary-setup__field">
+          <label class="itinerary-setup__label">Trip Name</label>
+          <input type="text" id="itinerary-name" class="itinerary-setup__input" placeholder="e.g., Japan Spring Trip" />
+        </div>
+        <div class="itinerary-setup__field">
+          <label class="itinerary-setup__label">Destination</label>
+          <input type="text" id="itinerary-destination" class="itinerary-setup__input" placeholder="e.g., Tokyo, Japan" />
+        </div>
+        <div class="itinerary-setup__field">
+          <label class="itinerary-setup__label">Daily Budget</label>
+          <div class="itinerary-setup__budget-wrap">
+            <span class="itinerary-setup__currency">$</span>
+            <input type="number" id="itinerary-budget" class="itinerary-setup__input itinerary-setup__input--budget" placeholder="150" min="0" step="10" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Day-by-day Itinerary -->
+      <div class="itinerary-days" id="itinerary-days">
+        <!-- Days rendered by JS -->
+      </div>
+
+      <button class="btn btn--primary btn--lg itinerary-page__add-day" id="add-day-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12h14" stroke-linecap="round"/>
+        </svg>
+        Add Day
+      </button>
+
+      <!-- Budget Summary -->
+      <div class="budget-summary" id="budget-summary">
+        <h2 class="budget-summary__title">Budget Overview</h2>
+        <div class="budget-summary__grid" id="budget-grid">
+          <!-- Budget cards per day rendered by JS -->
+        </div>
+        <div class="budget-summary__total" id="budget-total">
+          <!-- Total rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="itinerary-actions">
+        <button class="btn btn--primary btn--lg" id="save-itinerary-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+            <polyline points="17 21 17 13 7 13 7 21"/>
+            <polyline points="7 3 7 8 15 8"/>
+          </svg>
+          Save Itinerary
+        </button>
+        <button class="btn btn--outline btn--lg" id="clear-itinerary-btn">Clear All</button>
+      </div>
+
+      <!-- Saved Itineraries -->
+      <div class="saved-itineraries" id="saved-itineraries">
+        <h2 class="saved-itineraries__title">Saved Itineraries</h2>
+        <div id="saved-list"></div>
+        <div class="saved-itineraries__empty" id="saved-empty" hidden>
+          <p>No saved itineraries yet. Create one above!</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 TripPlanner. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>
