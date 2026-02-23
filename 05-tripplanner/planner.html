@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/javascript-projects-pages/05-tripplanner/assets/main-19eWkHKf.js"></script>
+  <script type="module" crossorigin src="/javascript-projects-pages/05-tripplanner/assets/main-C3xNnjvD.js"></script>
   <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/main-LLULv25d.css">
-  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/planner-BeuAHAXS.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/planner-1Q9myivn.css">
 </head>
 <body>
   <!-- Header -->
@@ -83,14 +83,38 @@
 
           <!-- Start Date -->
           <div class="planner-form__group">
-            <label class="planner-form__label" for="trip-start-date">Start Date</label>
-            <input type="date" id="trip-start-date" class="planner-form__input" />
+            <label class="planner-form__label">Start Date</label>
+            <div class="planner-form__date-wrap">
+              <input type="hidden" id="trip-start-date">
+              <button type="button" id="start-date-trigger" class="planner-form__trigger" aria-haspopup="dialog">
+                <svg class="planner-form__date-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 6.5H14" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M5.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M10.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span id="start-date-display" class="planner-form__trigger-text planner-form__trigger-text--placeholder">DD / MM / YYYY</span>
+              </button>
+              <div id="start-date-picker" class="date-picker" hidden></div>
+            </div>
           </div>
 
           <!-- End Date -->
           <div class="planner-form__group">
-            <label class="planner-form__label" for="trip-end-date">End Date</label>
-            <input type="date" id="trip-end-date" class="planner-form__input" />
+            <label class="planner-form__label">End Date</label>
+            <div class="planner-form__date-wrap">
+              <input type="hidden" id="trip-end-date">
+              <button type="button" id="end-date-trigger" class="planner-form__trigger" aria-haspopup="dialog">
+                <svg class="planner-form__date-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 6.5H14" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M5.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M10.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span id="end-date-display" class="planner-form__trigger-text planner-form__trigger-text--placeholder">DD / MM / YYYY</span>
+              </button>
+              <div id="end-date-picker" class="date-picker" hidden></div>
+            </div>
           </div>
 
           <!-- Notes -->
