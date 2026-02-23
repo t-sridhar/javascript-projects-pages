@@ -1,8 +1,0 @@
-{
-  "name": "tripplanner-starter",
-  "version": "1.0.0",
-  "description": "TripPlanner Travel Destination Explorer — Student Starter Template",
-  "scripts": {
-    "start": "npx serve ."
-  }
-}

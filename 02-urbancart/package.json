@@ -1,9 +1,0 @@
-{
-  "name": "urbancart-starter",
-  "version": "1.0.0",
-  "description": "UrbanCart Shopping Platform — Student Starter Template",
-  "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve . --cors"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "name": "fooddash-starter",
-  "version": "1.0.0",
-  "description": "FoodDash Food Discovery & Ordering App — Student Starter Template",
-  "scripts": {
-    "start": "npx serve ."
-  }
-}

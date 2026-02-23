@@ -1,9 +1,0 @@
-{
-  "name": "devconnect-starter",
-  "version": "1.0.0",
-  "description": "DevConnect Developer Platform — Student Starter Template",
-  "scripts": {
-    "start": "npx serve .",
-    "dev": "npx serve . --cors"
-  }
-}
