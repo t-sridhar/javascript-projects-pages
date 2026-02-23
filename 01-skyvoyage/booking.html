@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyVoyage — Complete Your Booking</title>
+  <link rel="icon" href="/javascript-projects-pages/01-skyvoyage/favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="/javascript-projects-pages/01-skyvoyage/assets/main-C6joIN-r.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/01-skyvoyage/assets/main-Bg89OwmS.css">
+</head>
+<body data-page="booking">
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="./index.html" class="nav__logo">
+        <svg class="nav__logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" fill="var(--color-primary)"/>
+          <path d="M10 18L16 8L22 18H10Z" fill="white"/>
+        </svg>
+        <span>SkyVoyage</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="./index.html" class="nav__link">Search</a></li>
+        <li><a href="./history.html" class="nav__link">My Bookings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="booking-page">
+    <div class="booking-page__header">
+      <h1 class="booking-page__title">Complete Your Booking</h1>
+      <div class="booking-steps">
+        <div class="booking-steps__step booking-steps__step--done">
+          <span class="booking-steps__number">1</span>
+          <span class="booking-steps__label">Search</span>
+        </div>
+        <div class="booking-steps__step booking-steps__step--done">
+          <span class="booking-steps__number">2</span>
+          <span class="booking-steps__label">Seats</span>
+        </div>
+        <div class="booking-steps__step booking-steps__step--active">
+          <span class="booking-steps__number">3</span>
+          <span class="booking-steps__label">Payment</span>
+        </div>
+        <div class="booking-steps__step">
+          <span class="booking-steps__number">4</span>
+          <span class="booking-steps__label">Confirmation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-page__body">
+      <div class="booking-page__main">
+        <section class="booking-section">
+          <h2 class="booking-section__title">Promo Code</h2>
+          <div id="promo-code"></div>
+        </section>
+
+        <section class="booking-section">
+          <h2 class="booking-section__title">Payment Details</h2>
+          <div id="payment-form"></div>
+        </section>
+      </div>
+
+      <aside class="booking-page__sidebar">
+        <div id="booking-summary"></div>
+
+        <button id="confirm-btn" class="btn btn--primary btn--full" disabled>
+          Confirm & Pay
+        </button>
+
+        <p class="booking-page__disclaimer">
+          This is a demo application. No real payment will be processed.
+        </p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SkyVoyage. All rights reserved. This is a demo project.</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+  <div id="modal-container"></div>
+
+</body>
+</html>

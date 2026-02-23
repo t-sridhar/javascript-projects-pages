@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-page="menu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodDash — Browse Our Menu</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/04-fooddash/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/04-fooddash/assets/main-3DHKroxK.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/main-DSO0JTiU.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/menu-BqZP4CPs.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/meal-card-CmfV7Kmb.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <path d="M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="header__logo-text">FoodDash</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Home</a>
+        <a href="./menu.html" class="header__nav-link header__nav-link--active">Menu</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Cart</span>
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Category Pills -->
+    <section class="category-pills">
+      <div class="container">
+        <div class="category-pills__scroll" id="category-pills">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & Sort Bar -->
+    <section class="menu-search">
+      <div class="container">
+        <div class="menu-search__input-wrap">
+          <svg class="menu-search__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="menu-search-input" class="menu-search__input" placeholder="Search meals by name..." autocomplete="off" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Sort Bar -->
+    <section class="sort-bar">
+      <div class="container sort-bar__inner">
+        <p class="sort-bar__count" id="meal-count">Loading meals...</p>
+        <div class="sort-bar__controls">
+          <span class="sort-bar__label">Sort by:</span>
+          <div class="sort-bar__dropdown-wrap">
+            <input type="hidden" id="sort-input" value="default">
+            <button type="button" id="sort-trigger" class="sort-bar__trigger" aria-haspopup="listbox">
+              <span id="sort-display" class="sort-bar__trigger-text">Default</span>
+              <svg class="sort-bar__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul id="sort-dropdown" class="sort-bar__dropdown" hidden>
+              <li class="sort-bar__dropdown-item sort-bar__dropdown-item--active" data-value="default">Default</li>
+              <li class="sort-bar__dropdown-item" data-value="name-az">Name: A-Z</li>
+              <li class="sort-bar__dropdown-item" data-value="name-za">Name: Z-A</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meals Grid -->
+    <section class="meals-section">
+      <div class="container">
+        <div class="meals-grid" id="meals-grid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="loading-state" id="meals-loading" hidden>
+          <div class="spinner"></div>
+          <p>Loading meals...</p>
+        </div>
+        <div class="empty-state" id="meals-empty" hidden>
+          <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+          </svg>
+          <h3 class="empty-state__title">No meals found</h3>
+          <p class="empty-state__text">Try a different search term or browse by category.</p>
+        </div>
+        <div class="meals__load-more" id="load-more-container" hidden>
+          <button class="btn btn--primary btn--lg" id="load-more-btn">Load More Meals</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 FoodDash. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

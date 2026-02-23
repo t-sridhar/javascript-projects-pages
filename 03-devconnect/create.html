@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-page="create">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Post — DevConnect</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/03-devconnect/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/03-devconnect/assets/main-kvobfCJ1.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/main-Dpmr84OT.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/create-COpqgYxL.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/post-card-Diyl59Rk.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/forms-Dx8hDehZ.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#7c3aed"/>
+          <text x="16" y="22" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="14" fill="white">&lt;/&gt;</text>
+        </svg>
+        <span class="header__logo-text">DevConnect</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Feed
+        </a>
+        <a href="./explore.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Explore
+        </a>
+        <a href="./create.html" class="header__nav-link header__nav-link--active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Create Post
+        </a>
+      </nav>
+      <button class="header__mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Create Post -->
+  <main class="create-page">
+    <div class="create-page__container">
+      <div class="create-page__header">
+        <h1 class="create-page__title">Create a New Post</h1>
+        <p class="create-page__subtitle">Share your thoughts, ideas, and discoveries with the community</p>
+      </div>
+
+      <div class="create-page__content">
+        <!-- Form -->
+        <div class="create-page__form-wrapper">
+          <form id="create-form" class="create-form" novalidate>
+            <div class="form-group">
+              <label for="post-title" class="form-label">Title</label>
+              <input type="text" id="post-title" class="form-input" placeholder="Enter a descriptive title..." required minlength="5" />
+              <div class="form-group__footer">
+                <span class="form-error" id="title-error"></span>
+                <span class="form-char-count" id="title-count">0 characters</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="post-body" class="form-label">Body</label>
+              <textarea id="post-body" class="form-textarea" placeholder="Write your post content here..." rows="10" required minlength="20"></textarea>
+              <div class="form-group__footer">
+                <span class="form-error" id="body-error"></span>
+                <span class="form-char-count" id="body-count">0 characters</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tags</label>
+              <div class="create-form__tags">
+                <button type="button" class="create-form__tag" data-tag="javascript">JavaScript</button>
+                <button type="button" class="create-form__tag" data-tag="react">React</button>
+                <button type="button" class="create-form__tag" data-tag="nodejs">Node.js</button>
+                <button type="button" class="create-form__tag" data-tag="css">CSS</button>
+                <button type="button" class="create-form__tag" data-tag="python">Python</button>
+                <button type="button" class="create-form__tag" data-tag="typescript">TypeScript</button>
+                <button type="button" class="create-form__tag" data-tag="api">API</button>
+                <button type="button" class="create-form__tag" data-tag="tutorial">Tutorial</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg create-form__submit">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Publish Post
+            </button>
+          </form>
+        </div>
+
+        <!-- Live Preview -->
+        <div class="create-page__preview-wrapper">
+          <h3 class="create-page__preview-label">Live Preview</h3>
+          <div class="create-page__preview" id="live-preview">
+            <div class="post-card post-card--preview">
+              <div class="post-card__header">
+                <div class="post-card__avatar-wrapper">
+                  <div class="post-card__avatar post-card__avatar--placeholder"></div>
+                </div>
+                <div class="post-card__author-info">
+                  <span class="post-card__author">You</span>
+                  <span class="post-card__time">Just now</span>
+                </div>
+              </div>
+              <h3 class="post-card__title" id="preview-title">Your post title will appear here...</h3>
+              <p class="post-card__body" id="preview-body">Start typing to see a live preview of your post. The content you write will be displayed here in real-time.</p>
+              <div class="post-card__tags" id="preview-tags"></div>
+              <div class="post-card__actions">
+                <button class="post-card__action" disabled>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <span>0</span>
+                </button>
+                <button class="post-card__action" disabled>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <span>0</span>
+                </button>
+                <button class="post-card__action" disabled>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">&copy; 2026 DevConnect. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+const t=t=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(t),r=t=>8.99+parseInt(t,10)%15*1.5,n=()=>("FD-"+Date.now().toString(36)+"-"+Math.random().toString(36).substring(2,8)).toUpperCase();export{n as a,t as f,r as g};

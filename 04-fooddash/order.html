@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-page="order">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodDash — Order Confirmed</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/04-fooddash/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/04-fooddash/assets/main-3DHKroxK.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/main-DSO0JTiU.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/order-Lv4tCZ06.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <path d="M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 8v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 10l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="header__logo-text">FoodDash</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Home</a>
+        <a href="./menu.html" class="header__nav-link">Menu</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <circle cx="20" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Cart</span>
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Empty State (no order) -->
+    <div class="empty-state" id="order-empty" hidden>
+      <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+        <rect x="9" y="3" width="6" height="4" rx="1"/>
+      </svg>
+      <h3 class="empty-state__title">No order found</h3>
+      <p class="empty-state__text">It seems there is no recent order to display.</p>
+      <a href="./menu.html" class="btn btn--primary btn--lg">Browse Menu</a>
+    </div>
+
+    <!-- Order Confirmation -->
+    <div class="order-confirmation" id="order-detail" hidden>
+      <!-- Success Icon -->
+      <svg class="order-confirmation__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <path d="M22 4L12 14.01l-3-3"/>
+      </svg>
+
+      <h1 class="order-confirmation__title">Order Confirmed!</h1>
+      <p class="order-confirmation__subtitle">Thank you for your order. Your delicious meals are on the way!</p>
+
+      <div class="order-confirmation__card">
+        <p class="order-confirmation__label">Order ID</p>
+        <p class="order-confirmation__value order-confirmation__value--id" id="order-id"></p>
+
+        <p class="order-confirmation__label">Order Date</p>
+        <p class="order-confirmation__value" id="order-date"></p>
+
+        <p class="order-confirmation__label">Items Ordered</p>
+        <div class="order-items" id="order-items">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="order-totals">
+          <div class="order-totals__row">
+            <span>Subtotal</span>
+            <span id="order-subtotal">$0.00</span>
+          </div>
+          <div class="order-totals__row">
+            <span>Tax (8%)</span>
+            <span id="order-tax">$0.00</span>
+          </div>
+          <div class="order-totals__row order-totals__row--total">
+            <span>Total</span>
+            <span id="order-total">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-confirmation__actions">
+        <a href="./menu.html" class="btn btn--primary btn--lg">Order Another</a>
+        <a href="./index.html" class="btn btn--outline btn--lg">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 FoodDash. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

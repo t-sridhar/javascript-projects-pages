@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-page="planner">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripPlanner — Plan Your Trip</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/05-tripplanner/assets/favicon-C1DAa1lr.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/05-tripplanner/assets/main-QmAThANY.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/main-LLULv25d.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/planner-BeuAHAXS.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <ellipse cx="16" cy="16" rx="6" ry="14" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="header__logo-text">TripPlanner</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Explore</a>
+        <a href="./wishlist.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          Wishlist
+          <span class="header__wishlist-badge" id="wishlist-badge" hidden>0</span>
+        </a>
+        <a href="./compare.html" class="header__nav-link">Compare</a>
+        <a href="./planner.html" class="header__nav-link header__nav-link--active">Plan a Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container planner-page">
+      <h1 class="planner-page__title">Plan Your Trip</h1>
+      <p class="planner-page__subtitle">Create an itinerary from your wishlisted countries. Add dates, notes, and save your trip plans.</p>
+
+      <!-- Loading -->
+      <div class="planner__loading" id="planner-loading" hidden>
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Trip Form -->
+      <form class="planner-form" id="trip-form">
+        <h2 class="planner-form__title">Create New Trip</h2>
+        <div class="planner-form__grid">
+          <!-- Trip Name -->
+          <div class="planner-form__group">
+            <label class="planner-form__label" for="trip-name">Trip Name</label>
+            <input type="text" id="trip-name" class="planner-form__input" placeholder="e.g., European Adventure" required />
+          </div>
+
+          <!-- Countries Selector -->
+          <div class="planner-form__group">
+            <label class="planner-form__label">Countries (from wishlist)</label>
+            <div class="planner-form__dropdown-wrap" id="planner-country-wrap">
+              <button type="button" id="planner-country-trigger" class="planner-form__trigger" aria-haspopup="listbox">
+                <span id="planner-country-display" class="planner-form__trigger-text">Select countries</span>
+                <svg class="planner-form__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div id="planner-country-dropdown" class="planner-form__dropdown" hidden>
+                <div class="planner-form__dropdown-search">
+                  <input type="text" id="planner-country-search" placeholder="Search wishlist..." autocomplete="off" />
+                </div>
+                <ul class="planner-form__dropdown-items"></ul>
+              </div>
+            </div>
+            <div class="planner-form__selected-countries" id="planner-selected-countries">
+              <span class="planner-form__no-selection">No countries selected</span>
+            </div>
+          </div>
+
+          <!-- Start Date -->
+          <div class="planner-form__group">
+            <label class="planner-form__label" for="trip-start-date">Start Date</label>
+            <input type="date" id="trip-start-date" class="planner-form__input" />
+          </div>
+
+          <!-- End Date -->
+          <div class="planner-form__group">
+            <label class="planner-form__label" for="trip-end-date">End Date</label>
+            <input type="date" id="trip-end-date" class="planner-form__input" />
+          </div>
+
+          <!-- Notes -->
+          <div class="planner-form__group planner-form__group--full">
+            <label class="planner-form__label" for="trip-notes">Notes</label>
+            <textarea id="trip-notes" class="planner-form__textarea" placeholder="Add any notes about your trip..." rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="planner-form__actions">
+          <button type="submit" class="btn btn--primary btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" stroke-linecap="round"/>
+            </svg>
+            Save Trip
+          </button>
+        </div>
+      </form>
+
+      <!-- Saved Trips -->
+      <h2 class="planner__trips-title">Your Trips</h2>
+      <div id="trips-list">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="planner__empty" id="trips-empty" hidden>
+        <svg class="planner__empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <h3 class="planner__empty-title">No trips planned yet</h3>
+        <p class="planner__empty-text">Create your first trip using the form above. Add countries from your wishlist!</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 TripPlanner. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

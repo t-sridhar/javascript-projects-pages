@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" data-page="checkout">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — UrbanCart</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/02-urbancart/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/02-urbancart/assets/main-vjQuLGFa.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/main-Bh0lNViV.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/checkout-BSozEHgs.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/toast-BZHN0AP4.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 9H7a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V10a1 1 0 0 0-1-1h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 9V7a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="header__logo-text">UrbanCart</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Shop</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cart
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Progress Steps -->
+      <div class="checkout-steps">
+        <div class="checkout-steps__step checkout-steps__step--completed">
+          <span class="checkout-steps__number">1</span>
+          <span class="checkout-steps__label">Cart</span>
+        </div>
+        <div class="checkout-steps__connector checkout-steps__connector--completed"></div>
+        <div class="checkout-steps__step checkout-steps__step--completed">
+          <span class="checkout-steps__number">2</span>
+          <span class="checkout-steps__label">Shipping</span>
+        </div>
+        <div class="checkout-steps__connector checkout-steps__connector--active"></div>
+        <div class="checkout-steps__step checkout-steps__step--active">
+          <span class="checkout-steps__number">3</span>
+          <span class="checkout-steps__label">Payment</span>
+        </div>
+        <div class="checkout-steps__connector"></div>
+        <div class="checkout-steps__step">
+          <span class="checkout-steps__number">4</span>
+          <span class="checkout-steps__label">Confirmation</span>
+        </div>
+      </div>
+
+      <div class="checkout-content">
+        <!-- Forms -->
+        <div class="checkout-forms">
+          <!-- Shipping Form -->
+          <section class="checkout-section">
+            <h2 class="checkout-section__title">Shipping Information</h2>
+            <form id="shipping-form" class="form" novalidate>
+              <div class="form__row form__row--2col">
+                <div class="form__group">
+                  <label for="first-name" class="form__label">First Name</label>
+                  <input type="text" id="first-name" class="form__input" placeholder="John" required />
+                  <span class="form__error" id="first-name-error"></span>
+                </div>
+                <div class="form__group">
+                  <label for="last-name" class="form__label">Last Name</label>
+                  <input type="text" id="last-name" class="form__input" placeholder="Doe" required />
+                  <span class="form__error" id="last-name-error"></span>
+                </div>
+              </div>
+              <div class="form__row form__row--2col">
+                <div class="form__group">
+                  <label for="email" class="form__label">Email</label>
+                  <input type="email" id="email" class="form__input" placeholder="john@example.com" required />
+                  <span class="form__error" id="email-error"></span>
+                </div>
+                <div class="form__group">
+                  <label for="phone" class="form__label">Phone</label>
+                  <input type="tel" id="phone" class="form__input" placeholder="(555) 123-4567" required />
+                  <span class="form__error" id="phone-error"></span>
+                </div>
+              </div>
+              <div class="form__group">
+                <label for="address" class="form__label">Address</label>
+                <input type="text" id="address" class="form__input" placeholder="123 Main Street" required />
+                <span class="form__error" id="address-error"></span>
+              </div>
+              <div class="form__row form__row--3col">
+                <div class="form__group">
+                  <label for="city" class="form__label">City</label>
+                  <input type="text" id="city" class="form__input" placeholder="New York" required />
+                  <span class="form__error" id="city-error"></span>
+                </div>
+                <div class="form__group">
+                  <label for="state" class="form__label">State</label>
+                  <input type="text" id="state" class="form__input" placeholder="NY" required />
+                  <span class="form__error" id="state-error"></span>
+                </div>
+                <div class="form__group">
+                  <label for="zip" class="form__label">ZIP Code</label>
+                  <input type="text" id="zip" class="form__input" placeholder="10001" required />
+                  <span class="form__error" id="zip-error"></span>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- Payment Form -->
+          <section class="checkout-section">
+            <h2 class="checkout-section__title">Payment Information</h2>
+            <form id="payment-form" class="form" novalidate>
+              <div class="form__group">
+                <label for="card-name" class="form__label">Cardholder Name</label>
+                <input type="text" id="card-name" class="form__input" placeholder="John Doe" required />
+                <span class="form__error" id="card-name-error"></span>
+              </div>
+              <div class="form__group">
+                <label for="card-number" class="form__label">Card Number</label>
+                <input type="text" id="card-number" class="form__input" placeholder="1234 5678 9012 3456" maxlength="19" required />
+                <span class="form__error" id="card-number-error"></span>
+              </div>
+              <div class="form__row form__row--2col">
+                <div class="form__group">
+                  <label for="card-expiry" class="form__label">Expiry (MM/YY)</label>
+                  <input type="text" id="card-expiry" class="form__input" placeholder="12/28" maxlength="5" required />
+                  <span class="form__error" id="card-expiry-error"></span>
+                </div>
+                <div class="form__group">
+                  <label for="card-cvv" class="form__label">CVV</label>
+                  <input type="text" id="card-cvv" class="form__input" placeholder="123" maxlength="4" required />
+                  <span class="form__error" id="card-cvv-error"></span>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <button class="btn btn--primary btn--lg checkout-forms__submit" id="place-order-btn">
+            <span class="checkout-forms__submit-text">Place Order</span>
+            <span class="checkout-forms__submit-spinner spinner spinner--sm" hidden></span>
+          </button>
+        </div>
+
+        <!-- Order Summary Sidebar -->
+        <aside class="checkout-summary" id="checkout-summary">
+          <h2 class="checkout-summary__title">Order Summary</h2>
+          <div class="checkout-summary__items" id="checkout-items">
+            <!-- Populated by JS -->
+          </div>
+          <div class="checkout-summary__divider"></div>
+          <div class="checkout-summary__row">
+            <span>Subtotal</span>
+            <span id="checkout-subtotal">$0.00</span>
+          </div>
+          <div class="checkout-summary__row">
+            <span>Shipping</span>
+            <span id="checkout-shipping">$0.00</span>
+          </div>
+          <div class="checkout-summary__row">
+            <span>Tax</span>
+            <span id="checkout-tax">$0.00</span>
+          </div>
+          <div class="checkout-summary__divider"></div>
+          <div class="checkout-summary__row checkout-summary__row--total">
+            <span>Total</span>
+            <span id="checkout-total">$0.00</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 UrbanCart. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

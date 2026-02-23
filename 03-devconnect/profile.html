@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" data-page="profile">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — DevConnect</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/03-devconnect/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/03-devconnect/assets/main-kvobfCJ1.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/main-Dpmr84OT.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/profile-QBo8D7ld.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/post-card-Diyl59Rk.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#7c3aed"/>
+          <text x="16" y="22" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="14" fill="white">&lt;/&gt;</text>
+        </svg>
+        <span class="header__logo-text">DevConnect</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Feed
+        </a>
+        <a href="./explore.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Explore
+        </a>
+        <a href="./create.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Create Post
+        </a>
+      </nav>
+      <button class="header__mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Profile Content -->
+  <main class="profile-page">
+    <!-- Profile Header -->
+    <section class="profile-header" id="profile-header">
+      <div class="profile-header__banner"></div>
+      <div class="profile-header__container">
+        <div class="profile-header__info">
+          <div class="profile-header__avatar-wrapper">
+            <img id="profile-avatar" class="profile-header__avatar" src="" alt="User avatar" />
+          </div>
+          <div class="profile-header__details">
+            <h1 id="profile-name" class="profile-header__name"></h1>
+            <p id="profile-username" class="profile-header__username"></p>
+            <p id="profile-bio" class="profile-header__bio"></p>
+            <div class="profile-header__meta">
+              <span id="profile-company" class="profile-header__meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span id="profile-company-text"></span>
+              </span>
+              <span id="profile-location" class="profile-header__meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="profile-location-text"></span>
+              </span>
+              <a id="profile-website" class="profile-header__meta-item profile-header__meta-link" href="#" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span id="profile-website-text"></span>
+              </a>
+            </div>
+          </div>
+          <button id="follow-btn" class="btn btn--primary profile-header__follow-btn">Follow</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="profile-stats">
+      <div class="profile-stats__container">
+        <div class="profile-stats__item">
+          <span id="stat-posts" class="profile-stats__number">0</span>
+          <span class="profile-stats__label">Posts</span>
+        </div>
+        <div class="profile-stats__item">
+          <span id="stat-followers" class="profile-stats__number">0</span>
+          <span class="profile-stats__label">Followers</span>
+        </div>
+        <div class="profile-stats__item">
+          <span id="stat-following" class="profile-stats__number">0</span>
+          <span class="profile-stats__label">Following</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- User Posts -->
+    <section class="profile-posts">
+      <div class="profile-posts__container">
+        <h2 class="profile-posts__title">Posts</h2>
+        <div id="user-posts" class="profile-posts__grid"></div>
+        <div id="profile-loading" class="profile-posts__loading">
+          <div class="spinner"></div>
+          <p>Loading profile...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">&copy; 2026 DevConnect. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>

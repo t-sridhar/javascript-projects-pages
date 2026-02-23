@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-page="compare">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripPlanner — Compare Countries</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/05-tripplanner/assets/favicon-C1DAa1lr.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/05-tripplanner/assets/main-QmAThANY.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/main-LLULv25d.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/05-tripplanner/assets/compare-DwOqS11d.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+          <ellipse cx="16" cy="16" rx="6" ry="14" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="header__logo-text">TripPlanner</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Explore</a>
+        <a href="./wishlist.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          Wishlist
+          <span class="header__wishlist-badge" id="wishlist-badge" hidden>0</span>
+        </a>
+        <a href="./compare.html" class="header__nav-link header__nav-link--active">Compare</a>
+        <a href="./planner.html" class="header__nav-link">Plan a Trip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container compare-page">
+      <h1 class="compare-page__title">Compare Countries</h1>
+      <p class="compare-page__subtitle">Select 2 or 3 countries to compare side-by-side.</p>
+
+      <!-- Loading State -->
+      <div class="loading-state" id="compare-loading" hidden>
+        <div class="spinner"></div>
+        <p>Loading countries...</p>
+      </div>
+
+      <!-- Country Selectors -->
+      <div class="compare__selectors">
+        <!-- Selector 1 -->
+        <div class="compare__selector-group">
+          <label class="compare__selector-label">Country 1</label>
+          <div class="compare__dropdown-wrap" id="compare-select-wrap-0">
+            <button type="button" id="compare-trigger-0" class="compare__trigger" aria-haspopup="listbox">
+              <span id="compare-display-0" class="compare__trigger-text">Select a country</span>
+              <svg class="compare__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div id="compare-dropdown-0" class="compare__dropdown" hidden>
+              <div class="compare__dropdown-search">
+                <input type="text" id="compare-search-0" placeholder="Search countries..." autocomplete="off" />
+              </div>
+              <ul class="compare__dropdown-items"></ul>
+            </div>
+          </div>
+          <button class="compare__clear-btn" type="button">Clear</button>
+        </div>
+
+        <!-- Selector 2 -->
+        <div class="compare__selector-group">
+          <label class="compare__selector-label">Country 2</label>
+          <div class="compare__dropdown-wrap" id="compare-select-wrap-1">
+            <button type="button" id="compare-trigger-1" class="compare__trigger" aria-haspopup="listbox">
+              <span id="compare-display-1" class="compare__trigger-text">Select a country</span>
+              <svg class="compare__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div id="compare-dropdown-1" class="compare__dropdown" hidden>
+              <div class="compare__dropdown-search">
+                <input type="text" id="compare-search-1" placeholder="Search countries..." autocomplete="off" />
+              </div>
+              <ul class="compare__dropdown-items"></ul>
+            </div>
+          </div>
+          <button class="compare__clear-btn" type="button">Clear</button>
+        </div>
+
+        <!-- Selector 3 -->
+        <div class="compare__selector-group">
+          <label class="compare__selector-label">Country 3 (optional)</label>
+          <div class="compare__dropdown-wrap" id="compare-select-wrap-2">
+            <button type="button" id="compare-trigger-2" class="compare__trigger" aria-haspopup="listbox">
+              <span id="compare-display-2" class="compare__trigger-text">Select a country</span>
+              <svg class="compare__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div id="compare-dropdown-2" class="compare__dropdown" hidden>
+              <div class="compare__dropdown-search">
+                <input type="text" id="compare-search-2" placeholder="Search countries..." autocomplete="off" />
+              </div>
+              <ul class="compare__dropdown-items"></ul>
+            </div>
+          </div>
+          <button class="compare__clear-btn" type="button">Clear</button>
+        </div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="compare__table-container" id="compare-table-container">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="compare__empty" id="compare-empty">
+        <svg class="compare__empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="7" height="7"/>
+          <rect x="14" y="3" width="7" height="7"/>
+          <rect x="3" y="14" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/>
+        </svg>
+        <h3 class="compare__empty-title">Select countries to compare</h3>
+        <p class="compare__empty-text">Choose at least 2 countries from the dropdowns above to see a side-by-side comparison.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 TripPlanner. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

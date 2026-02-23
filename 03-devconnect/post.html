@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-page="post">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post — DevConnect</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/03-devconnect/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/03-devconnect/assets/main-kvobfCJ1.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/main-Dpmr84OT.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/post-DSozOAuJ.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/post-card-Diyl59Rk.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/03-devconnect/assets/forms-Dx8hDehZ.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#7c3aed"/>
+          <text x="16" y="22" text-anchor="middle" font-family="monospace" font-weight="bold" font-size="14" fill="white">&lt;/&gt;</text>
+        </svg>
+        <span class="header__logo-text">DevConnect</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Feed
+        </a>
+        <a href="./explore.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Explore
+        </a>
+        <a href="./create.html" class="header__nav-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Create Post
+        </a>
+      </nav>
+      <button class="header__mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="post-detail">
+    <div class="post-detail__container">
+      <a href="./index.html" class="post-detail__back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Feed
+      </a>
+
+      <article id="post-content" class="post-detail__article">
+        <!-- Post content loaded by JS -->
+        <div class="post-detail__loading">
+          <div class="spinner"></div>
+          <p>Loading post...</p>
+        </div>
+      </article>
+
+      <!-- Comments Section -->
+      <section id="comments-section" class="post-detail__comments">
+        <h2 class="post-detail__comments-title">
+          Comments <span id="comment-count" class="post-detail__comment-count"></span>
+        </h2>
+        <div id="comments-list" class="post-detail__comments-list"></div>
+      </section>
+
+      <!-- Add Comment Form -->
+      <section class="post-detail__add-comment">
+        <h3 class="post-detail__form-title">Add a Comment</h3>
+        <form id="comment-form" class="comment-form" novalidate>
+          <div class="form-group">
+            <label for="comment-name" class="form-label">Name</label>
+            <input type="text" id="comment-name" class="form-input" placeholder="Your name" required />
+            <span class="form-error" id="comment-name-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="comment-email" class="form-label">Email</label>
+            <input type="email" id="comment-email" class="form-input" placeholder="your@email.com" required />
+            <span class="form-error" id="comment-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="comment-body" class="form-label">Comment</label>
+            <textarea id="comment-body" class="form-textarea" placeholder="Write your comment..." rows="4" required></textarea>
+            <span class="form-error" id="comment-body-error"></span>
+          </div>
+          <button type="submit" class="btn btn--primary">Post Comment</button>
+        </form>
+      </section>
+
+      <!-- Related Posts -->
+      <section class="post-detail__related">
+        <h2 class="post-detail__related-title">More from this author</h2>
+        <div id="related-posts" class="post-detail__related-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">&copy; 2026 DevConnect. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>

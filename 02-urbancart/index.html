@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-page="shop">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrbanCart — Discover Amazing Deals</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/02-urbancart/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/02-urbancart/assets/main-vjQuLGFa.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/main-Bh0lNViV.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/main-DjIWi_MR.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/rating-stars-BRBzf5DK.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/toast-BZHN0AP4.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 9H7a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V10a1 1 0 0 0-1-1h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 9V7a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="header__logo-text">UrbanCart</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link header__nav-link--active">Shop</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cart
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <h1 class="hero__title">Discover Amazing Deals</h1>
+        <p class="hero__subtitle">Shop the latest products at unbeatable prices. Free shipping on orders over $50.</p>
+        <div class="hero__search">
+          <svg class="hero__search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="search-input" class="hero__search-input" placeholder="Search for products..." autocomplete="off" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured / Staff Picks -->
+    <section class="featured" id="featured-section">
+      <div class="container">
+        <h2 class="section-title">Staff Picks</h2>
+        <p class="section-subtitle">Hand-picked favorites from our team</p>
+        <div class="featured__grid" id="featured-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="categories" id="categories-section">
+      <div class="container">
+        <div class="categories__scroll" id="categories-scroll">
+          <button class="categories__pill categories__pill--active" data-category="all">All Products</button>
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sort Bar -->
+    <section class="sort-bar">
+      <div class="container sort-bar__inner">
+        <p class="sort-bar__count" id="product-count">Loading products...</p>
+        <div class="sort-bar__controls">
+          <span class="sort-bar__label">Sort by:</span>
+          <div class="sort-bar__dropdown-wrap">
+            <input type="hidden" id="sort-input" value="default">
+            <button type="button" id="sort-trigger" class="sort-bar__trigger" aria-haspopup="listbox">
+              <span id="sort-display" class="sort-bar__trigger-text">Default</span>
+              <svg class="sort-bar__trigger-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul id="sort-dropdown" class="sort-bar__dropdown" hidden>
+              <li class="sort-bar__dropdown-item sort-bar__dropdown-item--active" data-value="default">Default</li>
+              <li class="sort-bar__dropdown-item" data-value="price-low">Price: Low to High</li>
+              <li class="sort-bar__dropdown-item" data-value="price-high">Price: High to Low</li>
+              <li class="sort-bar__dropdown-item" data-value="rating">Top Rated</li>
+              <li class="sort-bar__dropdown-item" data-value="name-az">Name: A-Z</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="products">
+      <div class="container">
+        <div class="products__grid" id="products-grid">
+          <!-- Populated by JS -->
+        </div>
+        <div class="products__loading" id="products-loading" hidden>
+          <div class="spinner"></div>
+          <p>Loading products...</p>
+        </div>
+        <div class="products__empty" id="products-empty" hidden>
+          <p>No products found. Try a different search or category.</p>
+        </div>
+        <div class="products__load-more" id="load-more-container" hidden>
+          <button class="btn btn--primary btn--lg" id="load-more-btn">Load More Products</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 UrbanCart. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

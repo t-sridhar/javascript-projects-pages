@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-page="cart">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping Cart — UrbanCart</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/02-urbancart/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/02-urbancart/assets/main-vjQuLGFa.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/main-Bh0lNViV.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/cart-cLFk-jdP.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/toast-BZHN0AP4.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 9H7a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V10a1 1 0 0 0-1-1h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 9V7a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="header__logo-text">UrbanCart</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Shop</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--active header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cart
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">Shopping Cart</h1>
+
+      <!-- Empty Cart State -->
+      <div class="cart-empty" id="cart-empty" hidden>
+        <img src="/javascript-projects-pages/02-urbancart/images/empty-cart.svg" alt="Empty cart" class="cart-empty__image" />
+        <h2 class="cart-empty__title">Your cart is empty</h2>
+        <p class="cart-empty__text">Looks like you haven't added anything to your cart yet.</p>
+        <a href="./index.html" class="btn btn--primary btn--lg">Continue Shopping</a>
+      </div>
+
+      <!-- Cart Content -->
+      <div class="cart-content" id="cart-content" hidden>
+        <div class="cart-content__items">
+          <div class="cart-items" id="cart-items">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <aside class="cart-summary" id="cart-summary">
+          <h2 class="cart-summary__title">Order Summary</h2>
+
+          <div class="cart-summary__row">
+            <span>Subtotal</span>
+            <span id="summary-subtotal">$0.00</span>
+          </div>
+          <div class="cart-summary__row" id="summary-discount-row" hidden>
+            <span>Discount</span>
+            <span class="cart-summary__discount" id="summary-discount">-$0.00</span>
+          </div>
+          <div class="cart-summary__row">
+            <span>Shipping</span>
+            <span id="summary-shipping">$0.00</span>
+          </div>
+          <div class="cart-summary__row">
+            <span>Estimated Tax</span>
+            <span id="summary-tax">$0.00</span>
+          </div>
+          <div class="cart-summary__divider"></div>
+          <div class="cart-summary__row cart-summary__row--total">
+            <span>Total</span>
+            <span id="summary-total">$0.00</span>
+          </div>
+
+          <!-- Promo Code -->
+          <div class="cart-summary__promo">
+            <label for="promo-input" class="cart-summary__promo-label">Promo Code</label>
+            <div class="cart-summary__promo-input-group">
+              <input type="text" id="promo-input" class="cart-summary__promo-input" placeholder="Enter code" />
+              <button class="btn btn--outline btn--sm" id="promo-apply-btn">Apply</button>
+            </div>
+            <p class="cart-summary__promo-message" id="promo-message"></p>
+          </div>
+
+          <a href="./checkout.html" class="btn btn--primary btn--lg cart-summary__checkout-btn" id="checkout-btn">
+            Proceed to Checkout
+          </a>
+
+          <a href="./index.html" class="cart-summary__continue">Continue Shopping</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 UrbanCart. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

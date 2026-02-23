@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-page="product">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — UrbanCart</title>
+  <link rel="icon" type="image/svg+xml" href="/javascript-projects-pages/02-urbancart/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/javascript-projects-pages/02-urbancart/assets/main-vjQuLGFa.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/main-Bh0lNViV.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/product-BwEdtcYN.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/rating-stars-BRBzf5DK.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/02-urbancart/assets/toast-BZHN0AP4.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="./index.html" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 9H7a1 1 0 0 0-1 1v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V10a1 1 0 0 0-1-1h-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 9V7a4 4 0 1 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="header__logo-text">UrbanCart</span>
+      </a>
+      <nav class="header__nav">
+        <a href="./index.html" class="header__nav-link">Shop</a>
+        <a href="./cart.html" class="header__nav-link header__nav-link--cart">
+          <svg class="header__cart-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cart
+          <span class="header__cart-badge" id="cart-badge" hidden>0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb / Back Link -->
+    <div class="container">
+      <a href="./index.html" class="back-link" id="back-link">
+        <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+          <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Shop
+      </a>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail" id="product-detail">
+      <div class="container">
+        <div class="product-detail__loading" id="detail-loading">
+          <div class="spinner"></div>
+          <p>Loading product...</p>
+        </div>
+        <div class="product-detail__content" id="detail-content" hidden>
+          <!-- Image Gallery -->
+          <div class="product-detail__gallery" id="product-gallery">
+            <div class="product-detail__main-image">
+              <img id="main-image" src="" alt="" />
+            </div>
+            <div class="product-detail__thumbnails" id="thumbnail-strip">
+              <!-- Thumbnail images populated by JS -->
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-detail__info">
+            <span class="product-detail__category" id="detail-category"></span>
+            <h1 class="product-detail__title" id="detail-title"></h1>
+            <p class="product-detail__brand" id="detail-brand"></p>
+
+            <div class="product-detail__rating" id="detail-rating">
+              <!-- Stars + review count -->
+            </div>
+
+            <div class="product-detail__price" id="detail-price">
+              <!-- Price display -->
+            </div>
+
+            <div class="product-detail__stock" id="detail-stock"></div>
+
+            <p class="product-detail__description" id="detail-description"></p>
+
+            <div class="product-detail__meta">
+              <p id="detail-shipping"></p>
+              <p id="detail-return"></p>
+            </div>
+
+            <!-- Add to Cart -->
+            <div class="product-detail__actions">
+              <div class="quantity-selector">
+                <button class="quantity-selector__btn" id="qty-decrease" aria-label="Decrease quantity">-</button>
+                <span class="quantity-selector__value" id="qty-value">1</span>
+                <button class="quantity-selector__btn" id="qty-increase" aria-label="Increase quantity">+</button>
+              </div>
+              <button class="btn btn--primary btn--lg product-detail__add-btn" id="add-to-cart-btn">
+                <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                  <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 6h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews-section" hidden>
+      <div class="container">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews__list" id="reviews-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related" id="related-section" hidden>
+      <div class="container">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="related__grid" id="related-grid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 UrbanCart. Built for learning JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyVoyage — Booking Confirmed</title>
+  <link rel="icon" href="/javascript-projects-pages/01-skyvoyage/favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="/javascript-projects-pages/01-skyvoyage/assets/main-C6joIN-r.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/01-skyvoyage/assets/main-Bg89OwmS.css">
+</head>
+<body data-page="confirmation">
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="./index.html" class="nav__logo">
+        <svg class="nav__logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" fill="var(--color-primary)"/>
+          <path d="M10 18L16 8L22 18H10Z" fill="white"/>
+        </svg>
+        <span>SkyVoyage</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="./index.html" class="nav__link">Search</a></li>
+        <li><a href="./history.html" class="nav__link">My Bookings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="confirmation-page">
+    <div class="confirmation-page__card">
+      <div class="confirmation-page__icon">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" stroke="var(--color-success)" stroke-width="3"/>
+          <path d="M20 32L28 40L44 24" stroke="var(--color-success)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="confirmation-page__title">Booking Confirmed!</h1>
+      <p class="confirmation-page__subtitle">Your flight has been booked successfully</p>
+
+      <div class="confirmation-page__ticket">
+        <div class="confirmation-page__ticket-label">Booking Reference</div>
+        <div id="ticket-number" class="confirmation-page__ticket-number"></div>
+      </div>
+
+      <div id="confirmation-details" class="confirmation-details"></div>
+
+      <div class="confirmation-page__actions">
+        <a href="./history.html" class="btn btn--primary">View My Bookings</a>
+        <a href="./index.html" class="btn btn--outline">Search More Flights</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SkyVoyage. All rights reserved. This is a demo project.</p>
+  </footer>
+
+</body>
+</html>

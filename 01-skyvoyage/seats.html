@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyVoyage — Select Your Seats</title>
+  <link rel="icon" href="/javascript-projects-pages/01-skyvoyage/favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="/javascript-projects-pages/01-skyvoyage/assets/main-C6joIN-r.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/01-skyvoyage/assets/main-Bg89OwmS.css">
+</head>
+<body data-page="seats">
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="./index.html" class="nav__logo">
+        <svg class="nav__logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" fill="var(--color-primary)"/>
+          <path d="M10 18L16 8L22 18H10Z" fill="white"/>
+        </svg>
+        <span>SkyVoyage</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="./index.html" class="nav__link">Search</a></li>
+        <li><a href="./history.html" class="nav__link">My Bookings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="seats-page">
+    <div class="seats-page__header">
+      <a href="./index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to results
+      </a>
+      <div id="flight-summary" class="flight-summary"></div>
+    </div>
+
+    <div class="seats-page__body">
+      <div class="seats-page__map-section">
+        <h2 class="seats-page__title">Select Your Seats</h2>
+        <p id="seat-instruction" class="seats-page__instruction"></p>
+
+        <div class="seat-legend">
+          <div class="seat-legend__item">
+            <span class="seat-legend__swatch seat-legend__swatch--available"></span>
+            <span>Available</span>
+          </div>
+          <div class="seat-legend__item">
+            <span class="seat-legend__swatch seat-legend__swatch--selected"></span>
+            <span>Selected</span>
+          </div>
+          <div class="seat-legend__item">
+            <span class="seat-legend__swatch seat-legend__swatch--occupied"></span>
+            <span>Occupied</span>
+          </div>
+          <div class="seat-legend__item">
+            <span class="seat-legend__swatch seat-legend__swatch--business"></span>
+            <span>Business</span>
+          </div>
+          <div class="seat-legend__item">
+            <span class="seat-legend__swatch seat-legend__swatch--exit"></span>
+            <span>Exit Row</span>
+          </div>
+        </div>
+
+        <div id="seat-map" class="seat-map"></div>
+
+        <div id="seat-hold-timer" class="seat-hold-timer hidden">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Seats reserved for <strong id="seat-timer-count">5:00</strong></span>
+        </div>
+      </div>
+
+      <div class="seats-page__details-section">
+        <div class="selection-summary">
+          <h3 class="selection-summary__title">Your Selection</h3>
+          <div id="selected-seats-list" class="selection-summary__seats">
+            <p class="selection-summary__empty">No seats selected</p>
+          </div>
+          <div class="selection-summary__pricing">
+            <div class="selection-summary__row">
+              <span>Base fare</span>
+              <span id="base-fare">$0.00</span>
+            </div>
+            <div class="selection-summary__row">
+              <span>Seat upgrades</span>
+              <span id="seat-upgrades">$0.00</span>
+            </div>
+            <div class="selection-summary__row selection-summary__row--total">
+              <span>Total per passenger</span>
+              <span id="total-per-passenger">$0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="passenger-forms" class="passenger-forms"></div>
+
+        <button id="continue-btn" class="btn btn--primary btn--full" disabled>
+          Continue to Booking
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SkyVoyage. All rights reserved. This is a demo project.</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>

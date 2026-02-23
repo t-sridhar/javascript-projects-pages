@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyVoyage — Find Your Perfect Flight</title>
+  <link rel="icon" href="/javascript-projects-pages/01-skyvoyage/favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="/javascript-projects-pages/01-skyvoyage/assets/main-C6joIN-r.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/01-skyvoyage/assets/main-Bg89OwmS.css">
+</head>
+<body data-page="search">
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="./index.html" class="nav__logo">
+        <svg class="nav__logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L28 10V22L16 30L4 22V10L16 2Z" fill="var(--color-primary)"/>
+          <path d="M10 18L16 8L22 18H10Z" fill="white"/>
+        </svg>
+        <span>SkyVoyage</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="./index.html" class="nav__link nav__link--active">Search</a></li>
+        <li><a href="./history.html" class="nav__link">My Bookings</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Where will you fly next?</h1>
+        <p class="hero__subtitle">Search thousands of flights and find the best deals</p>
+
+        <form id="search-form" class="search-form">
+          <div class="search-form__row">
+            <div class="search-form__field">
+              <label for="from-input" class="search-form__label">From</label>
+              <input type="text" id="from-input" class="search-form__input" placeholder="City or airport" autocomplete="off" required>
+              <ul id="from-suggestions" class="autocomplete-list hidden"></ul>
+            </div>
+
+            <button type="button" id="swap-btn" class="search-form__swap" aria-label="Swap departure and arrival">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M6 4L2 8L6 12M14 8L18 12L14 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 8H16M18 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+
+            <div class="search-form__field">
+              <label for="to-input" class="search-form__label">To</label>
+              <input type="text" id="to-input" class="search-form__input" placeholder="City or airport" autocomplete="off" required>
+              <ul id="to-suggestions" class="autocomplete-list hidden"></ul>
+            </div>
+
+            <div class="search-form__field">
+              <label class="search-form__label">Departure Date</label>
+              <input type="hidden" id="date-input" required>
+              <button type="button" id="date-trigger" class="search-form__input search-form__input--select" aria-haspopup="dialog">
+                <svg class="search-form__input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="3" width="12" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2 6.5H14" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M5.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M10.5 1.5V4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span id="date-display" class="search-form__input-text search-form__input-text--placeholder">DD / MM / YYYY</span>
+              </button>
+              <div id="date-picker" class="date-picker hidden"></div>
+            </div>
+
+            <div class="search-form__field">
+              <label class="search-form__label">Passengers</label>
+              <input type="hidden" id="passengers-input" value="1">
+              <button type="button" id="passengers-trigger" class="search-form__input search-form__input--select" aria-haspopup="listbox">
+                <svg class="search-form__input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M2.5 14C2.5 11 4.5 9 8 9C11.5 9 13.5 11 13.5 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span id="passengers-display" class="search-form__input-text">1 Passenger</span>
+                <svg class="search-form__input-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul id="passengers-dropdown" class="custom-dropdown hidden">
+                <li class="custom-dropdown__item custom-dropdown__item--active" data-value="1">1 Passenger</li>
+                <li class="custom-dropdown__item" data-value="2">2 Passengers</li>
+                <li class="custom-dropdown__item" data-value="3">3 Passengers</li>
+                <li class="custom-dropdown__item" data-value="4">4 Passengers</li>
+                <li class="custom-dropdown__item" data-value="5">5 Passengers</li>
+                <li class="custom-dropdown__item" data-value="6">6 Passengers</li>
+              </ul>
+            </div>
+          </div>
+
+          <button type="submit" class="search-form__submit btn btn--primary">Search Flights</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="popular-routes" class="popular-routes">
+      <div class="popular-routes__content">
+        <h2 class="popular-routes__title">Popular Destinations</h2>
+        <p class="popular-routes__subtitle">Explore trending routes with great deals</p>
+        <div id="popular-routes-grid" class="popular-routes__grid"></div>
+      </div>
+    </section>
+
+    <section id="results-section" class="results-section hidden">
+      <div class="results-section__header">
+        <div class="results-section__info">
+          <h2 id="results-title" class="results-section__title"></h2>
+          <p id="results-count" class="results-section__count"></p>
+        </div>
+        <div class="results-section__controls">
+          <div id="sort-bar"></div>
+          <div id="refresh-timer" class="refresh-timer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M14 8A6 6 0 1 1 8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span id="timer-text">Refreshing in <strong id="timer-count">60</strong>s</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-section__body">
+        <aside id="filter-panel" class="filter-panel"></aside>
+        <div class="results-section__main">
+          <div id="results-loading" class="loading-skeleton hidden">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+          </div>
+          <div id="results-list" class="results-list"></div>
+          <div id="results-empty" class="empty-state hidden">
+            <img src="/javascript-projects-pages/01-skyvoyage/images/empty-state.svg" alt="" class="empty-state__image">
+            <h3 class="empty-state__title">No flights found</h3>
+            <p class="empty-state__text">Try adjusting your filters or search for different dates</p>
+          </div>
+          <div id="pagination"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 SkyVoyage. All rights reserved. This is a demo project.</p>
+  </footer>
+
+  <div id="toast-container" class="toast-container"></div>
+
+</body>
+</html>
