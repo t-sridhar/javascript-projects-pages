@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/javascript-projects-pages/04-fooddash/assets/main-tHauz4UP.js"></script>
-  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/main-BU865ec5.css">
-  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/order-Lv4tCZ06.css">
+  <script type="module" crossorigin src="/javascript-projects-pages/04-fooddash/assets/main-lOBdVFDI.js"></script>
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/main-DnW0Jx40.css">
+  <link rel="stylesheet" crossorigin href="/javascript-projects-pages/04-fooddash/assets/order-BtVYw5NO.css">
 </head>
 <body>
   <!-- Header -->
@@ -71,6 +71,21 @@
 
         <p class="order-confirmation__label">Order Date</p>
         <p class="order-confirmation__value" id="order-date"></p>
+
+        <div class="order-confirmation__customer" id="order-customer" hidden>
+          <div class="order-confirmation__customer-row">
+            <div>
+              <p class="order-confirmation__label">Delivery To</p>
+              <p class="order-confirmation__value order-confirmation__value--sm" id="order-customer-name"></p>
+              <p class="order-confirmation__detail" id="order-customer-address"></p>
+              <p class="order-confirmation__detail" id="order-customer-phone"></p>
+            </div>
+            <div>
+              <p class="order-confirmation__label">Payment</p>
+              <p class="order-confirmation__value order-confirmation__value--sm" id="order-payment-method"></p>
+            </div>
+          </div>
+        </div>
 
         <p class="order-confirmation__label">Items Ordered</p>
         <div class="order-items" id="order-items">
